@@ -1,0 +1,224 @@
+@import './assets/styles/_variables';
+
+@font-face {
+  font-family: "Soma Light";
+  src: url('./assets/styles/webRegular.otf') format('opentype');
+  font-family: "Soma Medium";
+  src: url('./assets/styles/webMedium.otf') format('opentype');
+  font-family: "Soma Bold";
+  src: url('./assets/styles/webBold.otf') format('opentype');
+}
+
+html,
+body,
+#app {
+  height: 100%;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  color: $color-body;
+  font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.64282;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-family: "Soma Bold", Helvetica, Arial, sans-serif;
+  color: $color-header;
+  font-size: 2.1rem;
+  line-height: 1.41425;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+}
+
+h2 {
+  font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+  color: $color-header;
+  font-size: 1.8rem;
+  line-height: 1.61151;
+  font-weight: 500;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+h3 {
+  font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+  color: $color-header;
+  font-size: 1.35rem;
+  line-height: 1.54623;
+  font-weight: 500;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+h4 {
+  font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+  color: $color-header;
+  font-size: 0.8rem;
+  line-height: 2.2;
+  font-weight: 700;
+  padding: 0;
+  margin: 0;
+}
+
+p {
+  font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+  color: $color-body;
+  font-size: 1.1rem;
+  line-height: 1.61151;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+}
+
+.p_small {
+  font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+  color: $color-body;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  font-weight: 300;
+  padding: 0;
+  margin: 0;
+}
+
+.app-left {
+  height: 98%;
+}
+
+.app-left,
+.app-right {
+  display: block;
+  position: relative;
+}
+
+@media (min-width: $media-lg) {
+  .app-left {
+    display: block;
+    position: fixed;
+    width: 30%;
+    top: 0;
+    height: 100%;
+  }
+  .app-right {
+    display: block;
+    position: fixed;
+    width: 70%;
+    top: 0;
+    height: 100%;
+  }
+  .app-left {
+    left: 0;
+    overflow: hidden;
+  }
+
+  .app-right {
+    right: 0;
+    overflow: auto;
+  }
+
+  h1 {
+    font-family: "Soma Bold", Helvetica, Arial, sans-serif;
+    color: $color-header;
+    font-size: 3.5rem;
+    line-height: 1.27565;
+    font-weight: 500;
+    padding: 0;
+    margin: 0;
+  }
+
+  h2 {
+    font-family: "Soma Bold", Helvetica, Arial, sans-serif;
+    color: $color-header;
+    font-size: 2rem;
+    line-height: 1.42826;
+    font-weight: 700;
+  }
+
+  h3 {
+    font-family: "Soma Bold", Helvetica, Arial, sans-serif;
+    color: $color-header;
+    font-size: 1.5rem;
+    line-height: 1.51368;
+    font-weight: 500;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  h4 {
+    font-family: "Soma Bold", Helvetica, Arial, sans-serif;
+    color: $color-header;
+    font-size: 0.8rem;
+    line-height: 1.64282;
+    font-weight: 700;
+    padding: 0;
+    margin: 0;
+  }
+
+  p {
+    font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+    color: $color-body;
+    font-size: 1.1rem;
+    line-height: 1.51368;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+  }
+
+  .p_small {
+    font-family: "Soma Medium", Helvetica, Arial, sans-serif;
+    color: $color-body;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    font-weight: 300;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+a {
+  color: $color-link;
+  text-decoration: none;
+  opacity: 1;
+
+  &:not(.fade-hover):hover {
+    text-decoration: none;
+  }
+
+  &.fade-hover:hover {
+    opacity: 0.6;
+  }
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

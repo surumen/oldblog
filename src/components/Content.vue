@@ -1,7 +1,6 @@
 <script>
 import helpers from '../helpers/random';
 import Icons from './Icons';
-import Read from './Read';
 import projectsJson from '../data/projects.json';
 import workJson from '../data/work.json';
 import extrasJson from '../data/extras.json';
@@ -12,28 +11,39 @@ export default {
     Icons,
   },
   data() {
-    var data = {
+    const data = {
       projects: projectsJson,
       work: workJson,
-      whatwewant: 'rootcomponent',
+      num: 0,
       extras: extrasJson,
+      whatwewants: ['rootcomponent', 'project1', 'project2', 'project3', 'project4'],
+      whatwewant: 'rootcomponent',
       links: {
-        queer: [
-          '#',
+        project1: [
+          'project1',
+          'project2',
+          'project3',
+          'project4',
+          'project5',
         ],
-        cisgender: [
-          'https://www.urbandictionary.com/define.php',
+        project2: [
+          'project2',
         ],
-        bubbleTea: [
-          'https://www.youtube.com/watch?v=xebewT6lh2k',
-          'https://www.youtube.com/watch?v=Ct6BUPvE2sM',
+        project3: [
+          'project3',
+        ],
+        project4: [
+          'project4',
+        ],
+        project5: [
+          'project5',
         ],
       },
     };
 
-    data.queerLink = helpers.getRandomFromArray(data.links.queer);
-    data.cisgenderLink = helpers.getRandomFromArray(data.links.cisgender);
-    data.bubbleTeaLink = helpers.getRandomFromArray(data.links.bubbleTea);
+    data.project1Link = helpers.getRandomFromArray(data.links.project1);
+    data.project2Link = helpers.getRandomFromArray(data.links.project2);
+    data.project3Link = helpers.getRandomFromArray(data.links.project3);
 
     return data;
   },
@@ -43,18 +53,23 @@ export default {
     },
   },
   methods: {
-    onQueerClick() {
-      this.queerLink = helpers.getRandomFromArray(this.links.queer);
-    },
-    onCisgenderClick() {
-      this.cisgenderLink = helpers.getRandomFromArray(this.links.cisgender);
-    },
-    onBubbleTeaClick() {
-      this.bubbleTeaLink = helpers.getRandomFromArray(this.links.bubbleTea);
-    },
     onProject1Click() {
+      //this.project1Link = helpers.getRandomFromArray(this.links.project1);
       this.whatwewant = 'project1';
     },
+    onProject2Click() {
+      this.project2Link = helpers.getRandomFromArray(this.links.project2);
+    },
+    onProject3Click() {
+      this.project3Link = helpers.getRandomFromArray(this.links.project3);
+    },
+    // onProjectClick() {
+    //   let project = this.projects.find(obj => obj.number === 1);
+    //   let num = project.number;
+    //   // console.log(num);
+    //   this.whatwewant = this.whatwewants[num];
+
+    // },
     onHomeClick() {
       this.whatwewant = 'rootcomponent';
     },
@@ -69,9 +84,10 @@ export default {
       <div 
         class="project" 
         v-for="project in projects" 
-        v-if="!project.hidden">
+        v-if="!project.hidden"
+        v-on:click="number = project.number">
         <h3>
-          <a :href="queerLink" v-on:click="onProject1Click()" target="_blank">{{project.title}}</a> 
+          <a :href="project1Link" v-on:click="onProject1Click()" target="_blank">{{project.title}}</a> 
         </h3>
         <p>{{project.description}}</p>
         <p class="project-links" v-on:click="onProject1Click()">
@@ -96,7 +112,6 @@ export default {
     <section class="about">
       <h2>About</h2>
       <p>
-        I’m a <a :href="queerLink" v-on:click="onQueerClick()" target="_blank">none</a> Trinidadian-American <a :href="cisgenderLink" v-on:click="onCisgenderClick()" target="_blank">cisgender</a> woman of color. 
         I work as a Senior Software Engineer at <a href="https://etsy.com" target="_blank">Etsy</a> in New York, and I’ve been 
         active in the engineering world for over 6 years.
       </p>
@@ -109,10 +124,8 @@ export default {
         I now work with an amazing team during the day, and in the wee hours of 
         the night I hack away at one of my many side projects. I'm always 
         looking for a coding buddy, so if you're interested, get in touch! 
-        <a href="mailto:hello@thalida.com?subject=Oh%20hi!" target="_blank">hello@thalida.com</a>
       </p>
       <p>
-        I’m generally full of questions, and <a :href="bubbleTeaLink" v-on:click="onBubbleTeaClick()" target="_blank">bubble tea</a>.
       </p>
     </section>
     <section class="work">
